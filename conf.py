@@ -17,13 +17,13 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'TopoHelper'
-copyright = '2020, Bjorn Cattoor'
-author = 'Bjorn Cattoor'
-company = 'Infrabel'
+project = "TopoHelper"
+copyright = "2020, Bjorn Cattoor"
+author = "Bjorn Cattoor"
+company = "Infrabel"
 
 # The full version, including alpha/beta/rc tags
-release = '1.0'
+release = "1.0"
 
 
 # -- General configuration ---------------------------------------------------
@@ -40,18 +40,18 @@ extensions = [
     "sphinx.ext.viewcode",
     "myst_parser",
     "sphinx_inline_tabs",
-    'sphinxcontrib.yt', 
-    'sphinx.ext.autosectionlabel'
+    "sphinxcontrib.yt",
+    "sphinx.ext.autosectionlabel",
 ]
 
 source_suffix = {
-    '.rst': 'restructuredtext',
-    '.txt': 'markdown',
-    '.md': 'markdown',
+    ".rst": "restructuredtext",
+    ".txt": "markdown",
+    ".md": "markdown",
 }
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # Prefix document path to section labels, to use:
 # `path/to/file:heading` instead of just `heading`
@@ -90,12 +90,12 @@ myst_heading_anchors = 3
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = 'nl'
+language = "nl"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -103,26 +103,27 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'furo'
+html_theme = "furo"
 html_title = "TopoHelper"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
-
+html_static_path = ["_static"]
+html_extra_path = ["_html_extra"]
 # These paths are either relative to html_static_path
 # or fully qualified paths (eg. https://...)
 html_css_files = [
-    'css/custom.css',
+    "css/custom.css",
 ]
 
 html_js_files = [
-    'js/_blank-links.js',
+    "js/_blank-links.js",
 ]
 
 # This is a site wide anouncement!
 html_theme_options = {
     "announcement": (
-        "Topohelper: een door Infrabel ontwikkelde applicatie is in voortdurende ontwikkeling. Verwacht dat deze documentatie foutgevoelig is."
-    )}
+        "Topohelper: een door Infrabel ontwikkelde applicatie, is in voortdurende ontwikkeling. Deze documentatie kan dan ook fouten bevatten="
+    )
+}
