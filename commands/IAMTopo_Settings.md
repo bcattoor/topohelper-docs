@@ -24,7 +24,7 @@ Aan de hand van dit paneel kan je de instellingen, die worden gebruikt door de v
 
 ## Gebruik maken van het zoekveld
 
-De zoekfunctie of filter zal enkel variabelen weergeven die een stukje van de zoektekst bevatten. Om de ongefilterde resultaten terug te kunnen zien verwijder je de al opgegeven waarde.
+De zoekfunctie of het filter zal enkel de variabelen weergeven die een stukje van de zoektekst bevatten. Om de ongefilterde resultaten terug te kunnen zien verwijder je de al opgegeven tekst.
 
 ## Naamgeving van de instellingen
 
