@@ -9,5 +9,14 @@
     "python.formatting.provider": "black",
     "python.linting.pylintEnabled": true,
     "python.linting.flake8Enabled": false,
-    "python.linting.enabled": true
+    "python.linting.enabled": true,
+    "spellright.language": [
+        "en",
+        "fr"
+    ],
+    "spellright.documentTypes": [
+        "latex",
+        "plaintext",
+        "restructuredtext"
+    ]
 }
