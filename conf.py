@@ -57,6 +57,7 @@ templates_path = ["_templates"]
 # `path/to/file:heading` instead of just `heading`
 # see https://myst-parser.readthedocs.io/en/latest/using/howto.html#automatically-create-targets-for-section-headers
 autosectionlabel_prefix_document = True
+autosectionlabel_maxdepth = 3
 
 #
 # -- Options for extlinks ----------------------------------------------------
@@ -124,6 +125,6 @@ html_js_files = [
 # This is a site wide anouncement!
 html_theme_options = {
     "announcement": (
-        "Topohelper: een door Infrabel ontwikkelde applicatie, is in voortdurende ontwikkeling. Deze documentatie kan dan ook fouten bevatten="
+        "Topohelper is in voortdurende ontwikkeling, deze documentatie kan fouten bevatten!"
     )
 }

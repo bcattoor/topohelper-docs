@@ -6,25 +6,19 @@ Overzicht van de inhoud
 ------------------------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Inhoud:
    
    welcome
    
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Workflows:
-   
-   workflow/InstallingApplication
-   workflow/CalculatingRailwayCenterLine
-   workflow/WorkingWithTheCommandline
 
 .. toctree::
    :maxdepth: 1
    :caption: Commands: 
 
    commands/commands-overview
+   commands/variables-overview
 
    commands/IAMTopo_Rails2RailwayCenterLine
    commands/IAMTopo_Settings
@@ -36,23 +30,9 @@ Overzicht van de inhoud
    commands/IAMTopo_PointsToPolyline
 
 .. toctree::
-   :hidden:
-
-   README
-
-Zoeken op deze website
-------------------------
-
-.. * :ref:`genindex`
-.. * :ref:`modindex`
-
-* :ref:`search`
-
-.. GLOB
-.. ====
-
-..  .. toctree::
-..       :glob:
-..       :titlesonly:
-
-..       *
+   :maxdepth: 2
+   :caption: Workflows:
+   
+   workflow/InstallingApplication
+   workflow/CalculatingRailwayCenterLine
+   workflow/WorkingWithTheCommandline

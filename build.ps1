@@ -74,15 +74,29 @@ function Stop-Processes {
 ################################################################################
 ###############CODE####STARTS####HERE###########################################
 ################################################################################
+# INPUT
 $DestinationPath = "F:\Source\Repos\documentation\topohelper-github-pages"
 $SourcePath = ".\_build\html"
 $PrefferedBrowser = "msedge"
-
-
+$urls = @(
+    "F:\Source\Repos\documentation\topohelper-docs\_build\html\index.html", 
+    "https://bcattoor.github.io/topohelper/",
+    "F:\Source\Repos\documentation\topohelper-docs\_build\latex\topohelper.pdf")
+$Push = 0
+$PDF = 0
+if ($args[0] -eq "gh") { $Push = 1 }
+if ($args[0] -eq "pdf") { $PDF = 1 }
+if ($args[0] -eq "full") { 
+    $PDF = 1 
+    $Push = 1 
+}
+# END INPUT
+################################################################################
 
 Stop-Processes $PrefferedBrowser
 ./make clean
 ./make html
+if ($PDF) { ./make latexpdf }
 
 # Copy generated files to the topohelper repository responsible for publishing
 # GO GET all child folders who are not named ".git", delete these childfolders
@@ -96,18 +110,14 @@ Remove-Files $FilesToDelete
 # Copy new files to the destination, we don't use force here, becouse the folder
 # should be empty
 Copy-Item $SourcePath\* $DestinationPath -recurse
-Write-Host "New files were written to the github pages publish-folder here: $DestinationPath"
+Write-Host "Info: New files were written to the github pages publish-folder here: $DestinationPath"
 
-Push-GitRepository $DestinationPath
-
+if ($Push) { Push-GitRepository $DestinationPath }
+else { Write-Warning "No push to github executed." }
 #########################################################
 #########################################################
 
 # Show RESULT = Open local and online pages.
-$urls = @(
-    "F:\Source\Repos\documentation\topohelper-docs\_build\html\index.html", 
-    "https://bcattoor.github.io/topohelper/")
-
-foreach ($url in $urls) {
-    explorer $url
-}
+if ($Push) { explorer $urls[1] }
+else { explorer $urls[0] }
+if ($PDF) { explorer $urls[2] }

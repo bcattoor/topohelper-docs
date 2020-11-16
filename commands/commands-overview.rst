@@ -1,11 +1,11 @@
 ===============================
-Een overzicht van de commando's
+De commando's
 ===============================
 
 Een overzicht van alle beschikbare commando's in de plugin.
 
-.. csv-table:: Table Title
+.. csv-table:: Overzicht van de beschikbare commando's
    :file: ..\_static\tables\command-list-table.csv
    :delim: ;
-   :widths: 30 60 10
+   :widths: 40 60
    :header-rows: 1
