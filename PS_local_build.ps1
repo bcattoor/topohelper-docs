@@ -102,8 +102,10 @@ Push-GitRepository $DestinationPath
 
 #########################################################
 #########################################################
+
+# Show RESULT = Open local and online pages.
 $urls = @(
-    "F:\Source\Repos\documentation\topohelper-docs\_build\html\welcome.html", 
+    "F:\Source\Repos\documentation\topohelper-docs\_build\html\index.html", 
     "https://bcattoor.github.io/topohelper/")
 
 foreach ($url in $urls) {
