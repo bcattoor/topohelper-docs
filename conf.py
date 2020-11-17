@@ -70,8 +70,8 @@ extlinks = {
 # -- Options for intersphinx -------------------------------------------------
 #
 intersphinx_mapping = {
-    "python": ("https://docs.python.org/3", None),
-    "sphinx": ("https://www.sphinx-doc.org/", None),
+    # "python": ("https://docs.python.org/3", None),
+    # "sphinx": ("https://www.sphinx-doc.org/", None),
 }
 
 #
