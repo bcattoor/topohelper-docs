@@ -104,7 +104,7 @@ $FoldersToDelete = Get-ChildItem $DestinationPath -Directory -ErrorAction Silent
 Remove-Folders $FoldersToDelete
 
 # We also delete files in root folder
-$FilesToDelete = Get-ChildItem -Path $DestinationPath -File
+$FilesToDelete = Get-ChildItem -Path $DestinationPath -File -Exclude ".\.git*"
 Remove-Files $FilesToDelete
 
 # Copy new files to the destination, we don't use force here, becouse the folder
