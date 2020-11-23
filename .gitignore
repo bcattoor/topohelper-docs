@@ -40,3 +40,7 @@ Thumbs.db
 #######################
 *~
 *.bak
+
+# AutoCAD temp files
+*.dwl
+*.dwl2
