@@ -2,7 +2,7 @@
 
 function Remove-Folders {
     [CmdletBinding()]
-    param([parameter(Mandatory = $true)] $Folders) 
+    param([parameter(Mandatory = $true)][System.IO.DirectoryInfo[]] $Folders) 
     if ( $Folders -eq "" -or $Folders.Count -eq 0 ) {
         Write-Verbose "No folders to delete."
     }
@@ -15,27 +15,29 @@ function Remove-Folders {
 
 function Remove-Folder {
     [CmdletBinding()]
-    param ([parameter(Mandatory = $true)][String] $FolderPath ) 
-    if ( Test-Path $FolderPath ) {
+    param ([parameter(Mandatory = $true)][System.IO.DirectoryInfo] $FolderPath ) 
+    if ( $FolderPath.Exists ) {
         #http://stackoverflow.com/questions/7909167/how-to-quietly-remove-a-directory-with-content-in-powershell/9012108#9012108
-        Get-ChildItem -Path  $FolderPath -Force -Recurse | Remove-Item -Force -Recurse
-        Remove-Item $FolderPath -Force
-        Write-Verbose "Deleted folder: $FolderPath"
+        Get-ChildItem -Path  $FolderPath.FullName -Force -Recurse | Remove-Item -Force -Recurse
+        Remove-Item $FolderPath.FullName -Force
+        Write-Verbose "Deleted folder: $FolderPath.FullName"
     }
+    else { Write-Verbose "FAILED: Deleting path: $FolderPath.FullName" }
 }
 
 function Remove-Files {
     [CmdletBinding()]
-    param ([parameter(Mandatory = $true)] $FilesToDelete ) 
+    param ([parameter(Mandatory = $true)][System.IO.FileInfo[]] $FilesToDelete ) 
     if ( $FilesToDelete -eq "" -or $FilesToDelete.Count -eq 0 ) {
         Write-Verbose "No files to delete."
     }
     else {
         foreach ($File in $FilesToDelete) {
-            if ( Test-Path $File ) {
-                Remove-Item $File -Force -ErrorAction SilentlyContinue
-                Write-Verbose "Deleted file:  $File"
+            if ( $File.Exists ) {
+                Remove-Item $File.FullName -Force -ErrorAction Stop
+                Write-Verbose "Deleted file:  $File.FullName"
             }
+            else { Write-Verbose "FAILED: Deleting file-path: $File.FullName" }
         } 
     }
 }
@@ -100,11 +102,11 @@ if ($PDF) { ./make latexpdf }
 
 # Copy generated files to the topohelper repository responsible for publishing
 # GO GET all child folders who are not named ".git", delete these childfolders
-$FoldersToDelete = Get-ChildItem $DestinationPath -Directory -ErrorAction SilentlyContinue -Exclude ".git"
+$FoldersToDelete = Get-ChildItem $DestinationPath -Directory | Where-Object { $_.Name -cnotlike ".git*" }
 Remove-Folders $FoldersToDelete
 
 # We also delete files in root folder
-$FilesToDelete = Get-ChildItem -Path $DestinationPath -File -Exclude ".\.git*"
+$FilesToDelete = Get-ChildItem -Path $DestinationPath -File | Where-Object { $_.Name -cnotlike ".git*" }
 Remove-Files $FilesToDelete
 
 # Copy new files to the destination, we don't use force here, becouse the folder
