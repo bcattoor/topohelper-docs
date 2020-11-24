@@ -159,15 +159,14 @@ if (!$FastRun -or $Push) {
     if ($FilesToDelete.Count -ne 0) { Remove-Files $FilesToDelete }
 }
 
-# Copy new files to the destination, we don't use force here, becouse the folder
-# should be empty
+# Copy new files to the destination, we don't use force here, becouse the folder.
 if ($Push) {
     Copy-Item $SourcePath\* $DestinationPath -recurse -ErrorAction Stop
-    Write-Information "New files were written to the github pages publish-folder here: $DestinationPath"
+    Write-Information "New files were written to the github pages publish-folder here: $DestinationPath" -InformationAction Continue
     Push-GitRepository $DestinationPath 
-    Write-Information "The git-command was run in this location: $SourcePath"
+    Write-Information "The git-command was run in this location: $SourcePath" -InformationAction Continue
 }
-else { Write-Warning "No push to github executed." }
+else { Write-Information "No push to github executed." -InformationAction Continue }
 #########################################################
 #########################################################
 
