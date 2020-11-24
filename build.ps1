@@ -86,6 +86,7 @@ function Stop-Processes {
 ###############CODE####STARTS####HERE###########################################
 ################################################################################
 # INPUT
+$arguments = "local", "local-fast" , "push" , "push-fast" , "pdf" 
 $DestinationPath = "F:\Source\Repos\documentation\topohelper-github-pages"
 $SourcePath = ".\_build\html"
 $PrefferedBrowser = "msedge"
@@ -93,37 +94,43 @@ $urls = @(
     "F:\Source\Repos\documentation\topohelper-docs\_build\html\index.html", 
     "https://bcattoor.github.io/topohelper/",
     "F:\Source\Repos\documentation\topohelper-docs\_build\latex\topohelper.pdf")
-$Push = 0
-$PDF = 0
-if ($args[0] -eq "gh") { $Push = 1 }
+$Push = 0 # Push to github?
+$PDF = 0 # make a PDF?
+$FastRun = 0 # run fast?
+if ($args.Count -eq 0 -or $args[0] -eq "" -or $arguments.Contains($args[0]) -ne 1) { Write-Error "Please provide one of the following arguments: $arguments"; return; }
+if ($args[0] -eq "local") { $FastRun = 0 }
+if ($args[0] -eq "local-fast") { $FastRun = 1 }
+if ($args[0] -eq "push") { $Push = 1 }
+if ($args[0] -eq "push-fast") { $FastRun = 1; $Push = 1 }
 if ($args[0] -eq "pdf") { $PDF = 1 }
-if ($args[0] -eq "full") { 
-    $PDF = 1 
-    $Push = 1 
-}
+
 # END INPUT
 ################################################################################
 
-Stop-Processes $PrefferedBrowser -Verbose
-./make clean
+if (!$FastRun) { Stop-Processes $PrefferedBrowser }
+if (!$FastRun) { ./make clean }
 ./make html
 if ($PDF) { ./make latexpdf }
 
-# Copy generated files to the topohelper repository responsible for publishing
-# GO GET all child folders who are not named ".git", delete these childfolders
-$FoldersToDelete = Get-ChildItem $DestinationPath -Directory | Where-Object { $_.Name -cnotlike ".git*" }
-Remove-Folders $FoldersToDelete
+if (!$FastRun -or $Push) {
+    # Copy generated files to the topohelper repository responsible for publishing
+    # GO GET all child folders who are not named ".git", delete these childfolders
+    $FoldersToDelete = Get-ChildItem $DestinationPath -Directory | Where-Object { $_.Name -cnotlike ".git*" }
+    if ($FoldersToDelete.Count -ne 0) { Remove-Folders $FoldersToDelete }
 
-# We also delete files in root folder
-$FilesToDelete = Get-ChildItem -Path $DestinationPath -File | Where-Object { $_.Name -cnotlike ".git*" }
-Remove-Files $FilesToDelete
+    # We also delete files in root folder
+    $FilesToDelete = Get-ChildItem -Path $DestinationPath -File | Where-Object { $_.Name -cnotlike ".git*" }
+    if ($FilesToDelete.Count -ne 0) { Remove-Files $FilesToDelete }
+}
 
 # Copy new files to the destination, we don't use force here, becouse the folder
 # should be empty
-Copy-Item $SourcePath\* $DestinationPath -recurse
-Write-Host "Info: New files were written to the github pages publish-folder here: $DestinationPath"
-
-if ($Push) { Push-GitRepository $DestinationPath }
+if ($Push) {
+    Copy-Item $SourcePath\* $DestinationPath -recurse -ErrorAction Stop
+    Write-Information "New files were written to the github pages publish-folder here: $DestinationPath"
+    Push-GitRepository $DestinationPath 
+    Write-Information "The git-command was run in this location: $SourcePath"
+}
 else { Write-Warning "No push to github executed." }
 #########################################################
 #########################################################
@@ -131,4 +138,6 @@ else { Write-Warning "No push to github executed." }
 # Show RESULT = Open local and online pages.
 if ($Push) { explorer $urls[1] }
 else { explorer $urls[0] }
-if ($PDF) { explorer $urls[2] }
+if ($PDF) {
+    explorer $urls[2] 
+}
