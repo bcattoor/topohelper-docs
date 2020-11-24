@@ -169,10 +169,5 @@ if ($Push) {
 else { Write-Information "No push to github executed." -InformationAction Continue }
 #########################################################
 #########################################################
-
-# Show RESULT = Open local and online pages.
-if ($Push) { explorer $urls[1] }
-else { explorer $urls[0] }
-if ($PDF) {
-    explorer $urls[2] 
-}
+# Show RESULT
+if ($Push) { Open-WithExplorer $urls[1] }elseif ($PDF) { Open-WithExplorer $urls[2] }else { Open-WithExplorer $urls[0] }
