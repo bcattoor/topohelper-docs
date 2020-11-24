@@ -75,7 +75,6 @@ function Stop-Processes {
         $processList = Get-Process $processName -ErrorAction SilentlyContinue
         if ( $processList -ne "" -or $processList.Count -ne 0 ) {
             foreach ($process in $processList) {
-                # $processList | Stop-Process -Force | Write-Verbose "Forcefully KILLED process $_.Name"
                 Stop-Process -Force $process
                 Write-Verbose "Forcefully KILLED process $process.Name"
             }
