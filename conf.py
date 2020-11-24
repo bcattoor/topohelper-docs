@@ -99,6 +99,21 @@ language = "nl"
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 
+# Change prefered image order
+# see: https://stackoverflow.com/a/45970146
+# To customize the "best image" order for a given builder, edit your conf.py to
+# override the StandaloneHTMLBuilder class with the supported_image_types
+# order you prefer.
+
+from sphinx.builders.html import StandaloneHTMLBuilder
+
+StandaloneHTMLBuilder.supported_image_types = [
+    "image/svg+xml",
+    "image/gif",
+    "image/png",
+    "image/jpeg",
+]
+
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
