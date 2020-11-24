@@ -22,7 +22,7 @@ function Remove-Folder {
         Remove-Item $FolderPath.FullName -Force
         Write-Verbose "Deleted folder: $FolderPath.FullName"
     }
-    else { Write-Verbose "FAILED: Deleting path: $FolderPath.FullName" }
+    else { Write-Warning "Failed to delete folder-path: $FolderPath.FullName, folder was not found." }
 }
 
 function Remove-Files {
@@ -37,13 +37,13 @@ function Remove-Files {
                 Remove-Item $File.FullName -Force -ErrorAction Stop
                 Write-Verbose "Deleted file:  $File.FullName"
             }
-            else { Write-Verbose "FAILED: Deleting file-path: $File.FullName" }
+            else { Write-Warning "Failed to delete file-path: $File.FullName, file was not found." }
         } 
     }
 }
 
 function Push-GitRepository {
-    param ([parameter(Mandatory = $true)] $FolderContext) 
+    param ([parameter(Mandatory = $true)][string] $FolderContext) 
     # Publish changes to github
     $WorkingFolder = Get-Location
     Set-Location $FolderContext
@@ -54,7 +54,7 @@ function Push-GitRepository {
 }
 
 function Stop-Processes {
-    param([parameter(Mandatory = $true)] $processName, $timeout = 5)
+    param([parameter(Mandatory = $true)][string] $processName, $timeout = 100)
     $processList = Get-Process $processName -ErrorAction SilentlyContinue
     if ($processList) {
         # Try gracefully first
@@ -62,14 +62,23 @@ function Stop-Processes {
 
         # Wait until all processes have terminated or until timeout
         for ($i = 0 ; $i -le $timeout; $i ++) {
-            $processList | ForEach-Object {
-                If (!$_.HasExited) {
-                    Start-Sleep 1
-                }                    
+            Get-Process $processName -ErrorAction SilentlyContinue | ForEach-Object {
+                If (!$_.HasExited) { Start-Sleep 1 }                    
             }
         }
         # Else: kill
-        $processList | Stop-Process -Force        
+        $processList = Get-Process $processName -ErrorAction SilentlyContinue
+        if ( $processList -ne "" -or $processList.Count -ne 0 ) {
+            foreach ($process in $processList) {
+                # $processList | Stop-Process -Force | Write-Verbose "Forcefully KILLED process $_.Name"
+                Stop-Process -Force $process
+                Write-Verbose "Forcefully KILLED process $process.Name"
+            }
+        }
+        Write-Verbose "process stopped gracefully: $processName"
+    }
+    else {
+        Write-Verbose "Did not find Process to stop: $processName"
     }
 }
 
@@ -95,7 +104,7 @@ if ($args[0] -eq "full") {
 # END INPUT
 ################################################################################
 
-Stop-Processes $PrefferedBrowser
+Stop-Processes $PrefferedBrowser -Verbose
 ./make clean
 ./make html
 if ($PDF) { ./make latexpdf }
