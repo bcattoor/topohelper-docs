@@ -114,6 +114,7 @@ is nonzero.
 #>
     $exe, $argsForExe = $Args
     $ErrorActionPreference = 'Continue' # to prevent 2> redirections from triggering a terminating error.
+    # The ampersand (&) here tells PowerShell to execute that command, instead of treating it as a cmdlet or a string. 
     try { & $exe $argsForExe } catch { Throw } # catch is triggered ONLY if $exe can't be found, never for errors reported by $exe itself
     if ($LASTEXITCODE) { Throw "$exe indicated failure (exit code $LASTEXITCODE; full command: $Args)." }
 }
