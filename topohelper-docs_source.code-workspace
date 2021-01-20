@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"restructuredtext.languageServer.disabled": true,
+		"cSpell.words": [
+			"Cattoor",
+			"mathjax"
+		]
+	}
+}
