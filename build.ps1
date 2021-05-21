@@ -122,6 +122,9 @@ is nonzero.
 ################################################################################
 ###############CODE####STARTS####HERE###########################################
 ################################################################################
+# When the script is not able to be executed:
+# INFO: Set-ExecutionPolicy Unrestricted -Scope Process -Force 
+
 # INPUT
 $arguments = "local", "local-fast" , "push" , "push-fast" , "pdf" 
 $DestinationPath = "F:\Source\Repos\documentation\topohelper-github-pages"
