@@ -10,13 +10,13 @@ Op deze website gaan we dieper in op enkele onderwerpen in verband met het gebru
 
 Waarom deze plugin
 -------------------
-Deze plugin en zijn commando's zijn ontwikkeld voor bepaald specifiek gebruik op (opgemeten) samengestelde lijnen (3D POLYLINES in AutoCAD). Tijdens het werken met deze specifieke lijnen zijn noden onstaan die met een AutoCAD software niet standaard wordt opgelost. Deze plugin biedt daar zoveel mogelijk een antwoord op.
+Deze plugin en zijn commando's zijn ontwikkeld voor bepaald specifiek gebruik op (opgemeten) samengestelde lijnen (3D POLYLINES in AutoCAD). Tijdens het werken met deze specifieke lijnen zijn noden ontstaan die met een AutoCAD software niet standaard wordt opgelost. Deze plugin biedt daar zoveel mogelijk een antwoord op.
 
 In deze documentatie ga ik in op: het waarom een bepaalde functie nodig is, en hoe je deze kan gebruiken.
 
 Instalatie
 ----------
-Alles i.v.m. de applicatie instaleren lees je hier :ref:`Install`.
+Alles i.v.m. de applicatie instaleren lees je hier in :ref:`Install`.
 
 Gebruik
 --------
@@ -27,7 +27,7 @@ Indien een er een opfrissing, *van hoe deze commandoregel te gebruiken*, vereist
 Aanpassen van de instellingen
 --------------------------------
 
-De instellingen kunnen via een instellingenpaneel worden aangepast. Hoe je dit doet lees je :ref:`IAMTopo_Settings`. Ook kan via het instellingen paneel de de functies van deze plugin oproepen aan de hand van een uitklapmenu.
+De instellingen kunnen via een instellingenpaneel worden aangepast. Hoe je dit doet lees je in hier: :ref:`IAMTopo_Settings`. Ook kan via het instellingen paneel, de de functies van deze plugin aanroepen via een uitklapmenu.
 
 Verdeling van de gecompileerde bestanden
 ----------------------------------------

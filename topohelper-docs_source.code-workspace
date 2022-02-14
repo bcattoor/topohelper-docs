@@ -9,6 +9,13 @@
 		"cSpell.words": [
 			"Cattoor",
 			"mathjax"
-		]
+		],
+		"html.preview.scrollEditorWithPreview": false,
+		"markdown.preview.scrollEditorWithPreview": false,
+		"markdown.preview.scrollPreviewWithEditor": false,
+		"restructuredtext.preview.scrollEditorWithPreview": false,
+		"restructuredtext.preview.scrollPreviewWithEditor": false,
+		"html.preview.scrollPreviewWithEditor": false,
+		"cSpell.language": "en,nl"
 	}
 }

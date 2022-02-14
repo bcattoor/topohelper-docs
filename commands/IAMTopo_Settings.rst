@@ -1,8 +1,6 @@
-.. _IAMTopo_Settings:
-
-============
-Instellingen
-============
+=======================
+Het instellingen paneel
+=======================
 
 Het commando
 ------------
@@ -10,8 +8,8 @@ Door gebruik te maken van de opdracht *IAMTopo_Settings*, kan je de `variabelen 
 
 .. <!-- TODO: Waar vinden we meer informatie in verband met al deze variabelen? -->
 
-Het instellingen paneel
------------------------
+Het paneel
+----------
 Aan de hand van dit paneel kan je de instellingen, die worden gebruikt door de verschillende functies, aanpassen en opslaan voor een volgende sessie. Zo hoef je niet steeds dezelfde instellingen opnieuw in te geven via de opdrachten regel.
 
 Een overzicht

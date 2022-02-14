@@ -127,13 +127,13 @@ is nonzero.
 
 # INPUT
 $arguments = "local", "local-fast" , "push" , "push-fast" , "pdf" 
-$DestinationPath = "F:\Source\Repos\documentation\topohelper-github-pages"
+$DestinationPath = "C:\Users\cwn8400\Documents\GitHub\topohelper-github-pages"
 $SourcePath = ".\_build\html"
 $PrefferedBrowser = "msedge"
 $urls = @(
-    "F:\Source\Repos\documentation\topohelper-docs\_build\html\index.html", 
+    "C:\Users\cwn8400\Documents\GitHub\topohelper-docs\_build\html\index.html", 
     "https://bcattoor.github.io/topohelper/",
-    "F:\Source\Repos\documentation\topohelper-docs\_build\latex\topohelper.pdf")
+    "C:\Users\cwn8400\Documents\GitHub\topohelper-docs\_build\latex\topohelper.pdf")
 $Push = 0 # Push to github?
 $PDF = 0 # make a PDF?
 $FastRun = 0 # run fast?
@@ -143,7 +143,6 @@ if ($args[0] -eq "local-fast") { $FastRun = 1 }
 if ($args[0] -eq "push") { $Push = 1 }
 if ($args[0] -eq "push-fast") { $FastRun = 1; $Push = 1 }
 if ($args[0] -eq "pdf") { $PDF = 1 }
-
 # END INPUT
 ################################################################################
 

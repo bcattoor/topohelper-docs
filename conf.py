@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = "TopoHelper"
-copyright = "2020, Bjorn Cattoor"
+copyright = "2022, Bjorn Cattoor"
 author = "Bjorn Cattoor"
 company = "Infrabel"
 

@@ -18,5 +18,6 @@
         "plaintext",
         "restructuredtext"
     ],
+    "python.pythonPath": "C:\\Users\\cwn8400\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
     "restructuredtext.confPath": "${workspaceFolder}"
 }
