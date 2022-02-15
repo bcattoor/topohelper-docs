@@ -27,7 +27,7 @@ Indien een er een opfrissing, *van hoe deze commandoregel te gebruiken*, vereist
 Aanpassen van de instellingen
 --------------------------------
 
-De instellingen kunnen via een instellingenpaneel worden aangepast. Hoe je dit doet lees je in hier: :ref:`IAMTopo_Settings`. Ook kan via het instellingen paneel, de de functies van deze plugin aanroepen via een uitklapmenu.
+De instellingen kunnen via een instellingenpaneel worden aangepast. Hoe je dit doet lees je in hier: :ref:`commands/IAMTopo_Settings`. Ook kan via het instellingen paneel, de de functies van deze plugin aanroepen via een uitklapmenu.
 
 Verdeling van de gecompileerde bestanden
 ----------------------------------------

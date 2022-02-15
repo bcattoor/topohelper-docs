@@ -25,7 +25,7 @@ bij de genummerde puntjes zichtbaar in de ":ref:`instellingen paneel`"
 
 1. Wanneer een verkeerde waarde wordt ingevuld in de tabel, dan zal hier een vinkje bij geplaatst zijn. Dit betekent dat de wijziging niet kan worden opgeslaan. U dient eerst de foutive waarde aan te passen.
 2. Dit is de naam van de variabel.
-3. Dit is de waarde van de variabl.
+3. Dit is de waarde van de variable.
 4. Geef hier een woord of enkele letters in om de instellingen te doorzoeken.
 5. Druk op deze knop om het paneel te sluiten **zonder de wijzigingen** op te slaan.
 6. Herladen van de op het systeem opgeslagen waarden van de variabelen.
