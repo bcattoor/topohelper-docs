@@ -44,3 +44,6 @@ Thumbs.db
 # AutoCAD temp files
 *.dwl
 *.dwl2
+
+# VS code
+.vs
