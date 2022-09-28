@@ -59,24 +59,18 @@ function Push-GitRepository {
 }
 
 function Stop-Processes {
-    param([parameter(Mandatory = $true)][string] $processName, $timeout = 100)
+    param([parameter(Mandatory = $true)][string] $processName, [int]$timeout = 1)
     $processList = Get-Process $processName -ErrorAction SilentlyContinue
     if ($processList) {
         # Try gracefully first
         $processList.CloseMainWindow() | Out-Null
-
-        # Wait until all processes have terminated or until timeout
-        for ($i = 0 ; $i -le $timeout; $i ++) {
-            Get-Process $processName -ErrorAction SilentlyContinue | ForEach-Object {
-                If (!$_.HasExited) { Start-Sleep 1 }                    
-            }
-        }
+        timeout 1
         # Else: kill
         $processList = Get-Process $processName -ErrorAction SilentlyContinue
         if ( $processList -ne "" -or $processList.Count -ne 0 ) {
             foreach ($process in $processList) {
                 Stop-Process -Force $process
-                Write-Warning "Forcefully KILLED process $process.Name"
+                Write-Warning "Forcefully KILLED process $process"
             }
         }
         Write-Verbose "process stopped gracefully: $processName"
@@ -127,7 +121,7 @@ is nonzero.
 
 # INPUT
 $arguments = "local", "local-fast" , "push" , "push-fast" , "pdf" 
-$DestinationPath = "C:\Users\cwn8400\Documents\GitHub\topohelper-github-pages"
+$DestinationPath = "C:\Users\cwn8400\Documents\GitHub\topohelper-github_pages"
 $SourcePath = ".\_build\html"
 $PrefferedBrowser = "msedge"
 $urls = @(
