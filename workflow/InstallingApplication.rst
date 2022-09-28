@@ -24,7 +24,13 @@ Installeren
 -----------
 Voor de instalatie maak je gebruik van het meegeleverde instalatie bestand in de download. Dubbelklikken op het bestand zou alles moeten op de correcte plaats instaleren. Eens geïnstaleerd zijn de commando's beschikbaar in AutoCAD.
 
-.. figure:: ./../_static/images/installer_001.gif
+.. only:: html
+
+  .. figure:: ./../_static/images/installer_001.gif
+
+.. only:: latex
+
+  .. figure:: ./../_static/images/installer_001.png
 
 Voorwaarden
 -----------
