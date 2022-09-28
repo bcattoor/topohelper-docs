@@ -14,7 +14,7 @@ De verkregen bestanden
 
 Als voorbeeld hebben we een AutoCAD bestand gekregen van de lijn 60 (Download hier -> `OW17 L60`_)
 
-.. figure:: ./../_static/images/wf_crcl_dwg.*
+.. figure:: ./../_static/images/wf_crcl_dwg.png
 
     Screenshot van de modelspace van de DWG.
 
@@ -26,7 +26,7 @@ Wat vinden we in dat bestand
 In de laag **binnenkant rail** vinden we vier samengestelde lijnen *aka enkele 3D Polylines* met op elke vertex een xyz-waarde. De lijnen zijn niet samengevoegd en bestaan dus uit meerdere delen. Dit moeten we als eerste zien op te lossen.
 
 
-.. figure:: ./../_static/images/wf_crcl_binnenkant_rail.*
+.. figure:: ./../_static/images/wf_crcl_binnenkant_rail.png
 
     Screenshot van de vier rails.
 
@@ -34,9 +34,14 @@ Workflow
 -----------
 Hier een voorstelling van hoe de workflow er standaard uiziet, uiteraard kan hier worden van afgeweken indien nodig.
 
-.. figure:: ./../_static/diagrams/CalculateCenterlineTrack.svg
+.. only:: html
 
-    Basis flow: schematische voorstelling
+    .. figure:: ./../_static/diagrams/CalculateCenterlineTrack.svg
+
+.. only:: latex
+
+    .. figure:: ./../_static/diagrams/CalculateCenterlineTrack.png
+
 
 Voorbereiding
 ^^^^^^^^^^^^^
@@ -49,7 +54,7 @@ Het is belangrijk dat de polylijnen aaneensluitend zijn over de volledige lengte
 In ons voorbeeld:
 Omdat alle polylijnen mooi aaneensluitend zijn, kunnen we gebruik maken van het AutoCAD commando ``join``. Om het overzicht in de tekening te bewaren, zorg ik ervoor dat enkel de laag *Binnenkant Rail* ``Unlocked`` staat. 
 
-.. image:: ./../_static/images/wf_joinpolyline_001.gif
+.. image:: ./../_static/images/wf_joinpolyline_001.png
 
 Wanneer de lijnen **niet mooi aaneensluitend zijn**, dan maken we gebruik van het commando :ref:`IAMTopo_JoinPolyline` om de lijnen samen te voegen.
 
@@ -60,7 +65,7 @@ Ook zorgen we ervoor dat de richting de algemene righting van de kilometrering v
 
 Vertexen
 ~~~~~~~~
-We controleren ook of de samengestelde lijnen van de rails *evenveel vertexen hebben*. Hier in ons voorbeeld is dit niet het geval. Na een visuele controle merken we op dat dit komt doordat er vertexen zijn die door de opmeter of zijn software zijn toegevoegd. **Deze vallen niet op effectief opgemeten punten. Indien we deze verwijderen zullen we eenzelfde aantal punten bekomen voor elke polyijn van de rail.**
+We controleren ook de samengestelde lijnen van de rails *evenveel vertexen hebben*. Hier in ons voorbeeld is dit niet het geval. Na een visuele controle merken we op dat dit komt doordat er vertexen zijn die door de opmeter of zijn software zijn toegevoegd. **Deze vallen niet op effectief opgemeten punten. Indien we deze verwijderen zullen we eenzelfde aantal punten bekomen voor elke polyijn van de rail.**
 
 Opkuisen van niet opgemeten punten
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -72,7 +77,7 @@ Na een controle merken we dat de 4-lijnen van de rails evenveel vertexen hebben.
 We zijn nu klaar om over te gaan naar het berekenen van het center.
 Om de origineel aangeleverde lijnen niet te wijzigen, heb ik de nieuwe lijnen verplaats naar een nieuwe laag. Laagnaam: ``Binnenkant Rail Verwijderde Punten``
 
-.. image:: ./../_static/images/wf_CleanNonSurveyVertexFromPolyline_001.gif
+.. image:: ./../_static/images/wf_CleanNonSurveyVertexFromPolyline_001.*
 
 Berekenen van de as van het spoor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
