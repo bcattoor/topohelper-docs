@@ -61,7 +61,7 @@ Wanneer de lijnen **niet mooi aaneensluitend zijn**, dan maken we gebruik van he
 Richting
 ~~~~~~~~
 Na het samenvoegen van de lijnen controleren we of dat de richting van de polylijnen aan elkaar gelijk zijn.
-Ook zorgen we ervoor dat de richting de algemene righting van de kilometrering van de hoofdlijn volgt.
+Ook zorgen we ervoor dat de algemene righting dezelfde is als de richting van de kilometrering van de hoofdlijn.
 
 Vertexen
 ~~~~~~~~
