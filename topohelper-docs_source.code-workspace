@@ -1,21 +1,23 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {
-		"restructuredtext.languageServer.disabled": true,
-		"cSpell.words": [
-			"Cattoor",
-			"mathjax"
-		],
-		"html.preview.scrollEditorWithPreview": false,
-		"markdown.preview.scrollEditorWithPreview": false,
-		"markdown.preview.scrollPreviewWithEditor": false,
-		"restructuredtext.preview.scrollEditorWithPreview": false,
-		"restructuredtext.preview.scrollPreviewWithEditor": false,
-		"html.preview.scrollPreviewWithEditor": false,
-		"cSpell.language": "en,nl"
-	}
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "restructuredtext.languageServer.disabled": true,
+    "cSpell.words": ["Cattoor", "mathjax", "youtube"],
+    "html.preview.scrollEditorWithPreview": false,
+    "markdown.preview.scrollEditorWithPreview": false,
+    "markdown.preview.scrollPreviewWithEditor": false,
+    "restructuredtext.preview.scrollEditorWithPreview": false,
+    "restructuredtext.preview.scrollPreviewWithEditor": false,
+    "html.preview.scrollPreviewWithEditor": false,
+    "cSpell.language": "en,nl",
+    "esbonio.sphinx.confDir": ""
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": []
+  }
 }
