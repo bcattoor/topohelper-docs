@@ -8,7 +8,7 @@ Downloaden
 ----------
 
 `Download hier de laatste versie`_ van de software via onze GitHub releases pagina. 
-Indien je een overzicht wenst van alle voorgaande versies, of een oudere versie wenst te downloaden, kijn dan even hier_.
+Indien je een overzicht wenst van alle voorgaande versies, of een oudere versie wenst te downloaden, kijk dan even hier_.
 
 .. _Download hier de laatste versie: https://github.com/bcattoor/topohelper/releases/latest
 
